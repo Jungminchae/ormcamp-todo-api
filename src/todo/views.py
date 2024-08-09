@@ -1,6 +1,11 @@
-from rest_framework.generics import ListAPIView
-from todo.serializers import TaskSerializer
-from todo.models import Task
+from rest_framework.generics import ListAPIView, CreateAPIView
+from todo.serializers import TaskSerializer, ListSerializer
+from todo.models import Task, List
+
+
+class ListCreateView(CreateAPIView):
+    model = List
+    serializer_class = ListSerializer
 
 
 class TaskListView(ListAPIView):
