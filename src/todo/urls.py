@@ -1,13 +1,4 @@
-from django.urls import path, include
-from rest_framework.routers import DefaultRouter
-from todo.views import TaskViewSet, ListCreateView
+from django.urls import path
+from todo.apis import api
 
-
-router = DefaultRouter()
-
-router.register("tasks", TaskViewSet)
-
-urlpatterns = [
-    path("", include(router.urls), name="tasks"),
-    path("lists/", ListCreateView.as_view(), name="list-create"),
-]
+urlpatterns = [path("", api.urls)]
